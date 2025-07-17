@@ -15,17 +15,17 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        int res = checkbalance(root);
-        if (res != -1) return true;
+        int res = checkBalanced(root);
+        if(res != -1) return true;
         else return false;
     }
-    public int checkbalance(TreeNode root){
+    public int checkBalanced(TreeNode root){
         if(root == null) return 0;
-        int left = checkbalance(root.left);
+        int left = checkBalanced(root.left);
         if(left == -1) return -1;
-        int right = checkbalance(root.right);
+        int right = checkBalanced(root.right);
         if(right == -1) return -1;
-        if(Math.abs(left - right) >1) return -1;
-        return Math.max(left, right)+1;
+        if(Math.abs(left-right) > 1) return -1;
+        return Math.max(left,right)+1;
     }
 }
